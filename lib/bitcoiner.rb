@@ -1,0 +1,3 @@
+module Bitcoiner
+  # Your code goes here...
+end
