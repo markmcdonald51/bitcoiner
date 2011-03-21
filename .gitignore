@@ -2,4 +2,3 @@ pkg/*
 *.gem
 .bundle
 Markdown.pl
-README.html

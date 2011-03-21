@@ -1,0 +1,126 @@
+<pre><code>|_  o _|_ _  _  o __  _  __
+|_) |  |_(_ (_) | | |(/_ | 
+add bitcoin to your rails app
+</code></pre>
+
+<h3>what is it?</h3>
+
+<p>bitcoiner is <a href="https://github.com/davout">davout</a>'s code used at <a href="https://bitcoin-central.net/">bitcoin-central.net</a> (available on <a href="https://github.com/davout/bitcoin-central">github</a>) made into a ruby gem.</p>
+
+<h3>how do you set it up?</h3>
+
+<h4>step 1: setting up the bitcoin client</h4>
+
+<ol>
+<li><p>install the actual bitcoin client.</p>
+
+<ul>
+<li><a href="http://www.bitcoin.org/">download</a> the linux version (i'm assuming you're on a linux server/machine)</li>
+<li>extract it to <strong>$HOME/bitcoin</strong>. for example, <strong>users/dan/bitcoin</strong></li>
+<li>your rails application will run and interact with "bitcoind" (<a href="https://en.bitcoin.it/wiki/Bitcoind">wiki explanation</a>), which is the headless/guiless version of the client. the executable is located at <strong>$HOME/bitcoin/bin/32/bitcoind.exe</strong>.</li>
+</ul></li>
+<li><p>create the configuration file.</p>
+
+<ul>
+<li>create a directory <strong>$HOME/.bitcoin</strong>.</li>
+<li>within it, create a <strong>bitcoin.yml</strong> file. for example, the full path could look something like <strong>users/dan/bitcoin.yml</strong></li>
+<li>copy and paste <a href="https://en.bitcoin.it/wiki/Running_Bitcoin#Sample_Bitcoin.conf">this configuration</a> into the file. these are all of the available options set to default values.</li>
+</ul></li>
+<li><p>configure a username and password.</p>
+
+<ul>
+<li>uncomment and change the rpcuser and rpcpassword.</li>
+<li><p>for example,</p>
+
+<pre><code>    # You must set rpcuser and rpcpassword to secure the JSON-RPC api
+    #rpcuser=Ulysseys
+    #rpcpassword=YourSuperGreatPasswordNumber_385593
+</code></pre>
+
+<p>should become something like:</p>
+
+<pre><code>    # You must set rpcuser and rpcpassword to secure the JSON-RPC api
+    rpcuser=donaldduck
+    rpcpassword=Jikald32AKD@!
+</code></pre></li>
+<li>note: you will repeat these values when you're setting up the bitcoiner gem</li>
+</ul></li>
+</ol>
+
+<h4>step 2: setting up the bitcoiner gem</h4>
+
+<ol>
+<li><p>add bitcoiner to your rails Gemfile</p>
+
+<pre><code>gem 'bitcoiner'
+</code></pre></li>
+<li><p>run bundler to install bitcoiner and its dependencies</p>
+
+<pre><code>$ bundle install
+</code></pre></li>
+<li><p>create bitcoiner's configuration file</p>
+
+<ul>
+<li>create <strong>bitcoiner.yml</strong> in the config folder of your rails application</li>
+<li><p>within it, fill in:</p>
+
+<pre><code>    development:
+        url: http://localhost:8332/ # location of bitcoin server (default)
+        username: donaldduck # bitcoin.conf's rpcpassword rpcuser
+        password: Jikald32AKD@! # bitcoin.conf's rpcpassword
+    test:
+        url: http://localhost:8332/
+        username: donaldduck
+        password: Jikald32AKD@!
+    production:
+        url: http://localhost:8332/
+        username: donaldduck
+        password: Jikald32AKD@!
+</code></pre></li>
+</ul></li>
+<li><p>(optional): create a validator for bitcoin addresses</p></li>
+</ol>
+
+<h4>step 3: start the bitcoind server</h4>
+
+<pre><code>    $ /users/dan/bitcoin/bin/32/bitcoind
+</code></pre>
+
+<h3>how do you use it?</h3>
+
+<ul>
+<li><p>First, initialize the client:</p>
+
+<pre><code>@bitcoiner = Bitcoiner::Client.new
+</code></pre>
+
+<p>You can put this in the <strong>ApplicationController</strong> so it's available to all controllers and pages.</p></li>
+<li><p>Now you can send any of the api calls to the bitcoin client (<a href="https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list">full list</a> on the bitcoin wiki)</p></li>
+<li><p>to make bitcoin methods more ruby-like, bitcoiner allows you to use underscores. </p>
+
+<pre><code>@bitcoiner.get_account_address(account)
+</code></pre>
+
+<p>is treated the same as:</p>
+
+<pre><code>@bitcoiner.getaccountaddress(account)
+</code></pre></li>
+</ul>
+
+<h3>examples</h3>
+
+<ul>
+<li><p>list all of the addresses in the client:</p>
+
+<pre><code>@bitcoiner.list_received_by_address 0, true
+#=&gt; [{"address"=&gt;"1JpnGuSXGMSNRY8PTFdQkR5r9beREPWnyt", "account"=&gt;"Your Address", "label"=&gt;"Your Address", "amount"=&gt;0.0, "confirmations"=&gt;0}]
+</code></pre></li>
+<li><p>change an account name:</p>
+
+<pre><code>@bitcoiner.set_accountd
+</code></pre></li>
+<li><p>stop the bitcoin server:</p>
+
+<pre><code>@bitcoiner.stop
+</code></pre></li>
+</ul>
