@@ -30,9 +30,9 @@ bitcoiner is [davout](https://github.com/davout)'s code used at [bitcoin-central
     
         should become something like:
     
-                # You must set rpcuser and rpcpassword to secure the JSON-RPC api
-                rpcuser=donaldduck
-                rpcpassword=Jikald32AKD@!
+            # You must set rpcuser and rpcpassword to secure the JSON-RPC api
+            rpcuser=donaldduck
+            rpcpassword=Jikald32AKD@!
     - note: you will repeat these values when you're setting up the bitcoiner gem
 
 #### step 2: setting up the bitcoiner gem ####
@@ -49,18 +49,18 @@ bitcoiner is [davout](https://github.com/davout)'s code used at [bitcoin-central
     - create __bitcoiner.yml__ in the config folder of your rails application
     - within it, fill in:
   
-                development:
-                    url: http://localhost:8332/ # location of bitcoin server (default)
-                    username: donaldduck # bitcoin.conf's rpcpassword rpcuser
-                    password: Jikald32AKD@! # bitcoin.conf's rpcpassword
-                test:
-                    url: http://localhost:8332/
-                    username: donaldduck
-                    password: Jikald32AKD@!
-                production:
-                    url: http://localhost:8332/
-                    username: donaldduck
-                    password: Jikald32AKD@!
+            development:
+                url: http://localhost:8332/ # location of bitcoin server (default)
+                username: donaldduck # bitcoin.conf's rpcpassword rpcuser
+                password: Jikald32AKD@! # bitcoin.conf's rpcpassword
+            test:
+                url: http://localhost:8332/
+                username: donaldduck
+                password: Jikald32AKD@!
+            production:
+                url: http://localhost:8332/
+                username: donaldduck
+                password: Jikald32AKD@!
 
 5. (optional): create a validator for bitcoin addresses
 
