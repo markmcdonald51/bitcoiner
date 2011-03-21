@@ -1,0 +1,17 @@
+PATH
+  remote: .
+  specs:
+    bitcoiner (0.0.1)
+      addressable
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    addressable (2.2.4)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  addressable
+  bitcoiner!

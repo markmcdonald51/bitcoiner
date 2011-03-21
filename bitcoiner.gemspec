@@ -6,11 +6,13 @@ Gem::Specification.new do |s|
   s.name        = "bitcoiner"
   s.version     = Bitcoiner::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Dan Neumann"]
+  s.email       = ["danneumanntx@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{add bitcoin interaction to your rails app.}
+  s.description = %q{add bitcoin interaction to your rails app. ported davout's code into a gem.}
+
+  s.add_dependency "addressable"
 
   s.rubyforge_project = "bitcoiner"
 
