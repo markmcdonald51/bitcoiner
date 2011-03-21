@@ -1,5 +1,6 @@
-## Bitcoiner ##
-add bitcoin to your rails app
+    |_  o _|_ _  _  o __  _  __
+    |_) |  |_(_ (_) | | |(/_ | 
+    add bitcoin to your rails app
 
 ### what is it? ###
 
