@@ -16,17 +16,17 @@ bitcoiner is [davout](https://github.com/davout)'s code used at [bitcoin-central
     - your rails application will run and interact with "bitcoind" ([wiki explanation](https://en.bitcoin.it/wiki/Bitcoind)), which is the headless/guiless version of the client. the executable is located at __$HOME/bitcoin/bin/32/bitcoind.exe__.
   
 2. create the configuration file.
-  - create a directory __$HOME/.bitcoin__.
-  - within it, create a __bitcoin.yml__ file. for example, the full path could look something like __users/dan/bitcoin.yml__
-  - copy and paste [this configuration](https://en.bitcoin.it/wiki/Running_Bitcoin#Sample_Bitcoin.conf) into the file. these are all of the available options set to default values.
+    - create a directory __$HOME/.bitcoin__.
+    - within it, create a __bitcoin.yml__ file. for example, the full path could look something like __users/dan/bitcoin.yml__
+    - copy and paste [this configuration](https://en.bitcoin.it/wiki/Running_Bitcoin#Sample_Bitcoin.conf) into the file. these are all of the available options set to default values.
 
 3. configure a username and password.
     - uncomment and change the rpcuser and rpcpassword.
     - for example,
 
-                # You must set rpcuser and rpcpassword to secure the JSON-RPC api
-                #rpcuser=Ulysseys
-                #rpcpassword=YourSuperGreatPasswordNumber_385593
+            # You must set rpcuser and rpcpassword to secure the JSON-RPC api
+            #rpcuser=Ulysseys
+            #rpcpassword=YourSuperGreatPasswordNumber_385593
     
         should become something like:
     
