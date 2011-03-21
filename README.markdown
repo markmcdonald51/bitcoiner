@@ -95,7 +95,7 @@ bitcoiner is [davout](https://github.com/davout)'s code used at [bitcoin-central
         
 - change an account name:
 
-        @bitcoiner.set_accountd
+        @bitcoiner.set_account
         
 - stop the bitcoin server:
 
