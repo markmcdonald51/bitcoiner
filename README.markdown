@@ -11,9 +11,9 @@ bitcoiner is [davout](https://github.com/davout)'s code used at [bitcoin-central
 #### step 1: setting up the bitcoin client ####
 
 1. install the actual bitcoin client.
-  - [download](http://www.bitcoin.org/) the linux version (i'm assuming you're on a linux server/machine)
-  - extract it to __$HOME/bitcoin__. for example, __users/dan/bitcoin__
-  - your rails application will run and interact with "bitcoind" ([wiki explanation](https://en.bitcoin.it/wiki/Bitcoind)), which is the headless/guiless version of the client. the executable is located at __$HOME/bitcoin/bin/32/bitcoind.exe__.
+  -[download](http://www.bitcoin.org/) the linux version (i'm assuming you're on a linux server/machine)
+  -extract it to __$HOME/bitcoin__. for example, __users/dan/bitcoin__
+  -your rails application will run and interact with "bitcoind" ([wiki explanation](https://en.bitcoin.it/wiki/Bitcoind)), which is the headless/guiless version of the client. the executable is located at __$HOME/bitcoin/bin/32/bitcoind.exe__.
   
 2. create the configuration file.
   - create a directory __$HOME/.bitcoin__.
